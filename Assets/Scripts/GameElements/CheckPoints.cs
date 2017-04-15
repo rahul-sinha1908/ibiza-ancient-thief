@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckPoints : MonoBehaviour {
 
-	public bool bCycle, bBullock, bHorse, bBoat;
+	public bool bCycle, bBullock, bHorse, bBoat, bMoney;
 	public List<Transform> cycle, bullock, horse, boat;
 
 	// Use this for initialization
