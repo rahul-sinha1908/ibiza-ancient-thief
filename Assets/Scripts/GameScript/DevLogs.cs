@@ -2,15 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DevLogs : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
+namespace MyGame{
+	public enum Tag{
+		UnOrdered, GameClickListener,MyPlayerScript, BucketProperties, Network
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public class DevTag{
+		public const int MAX=100;
+		public bool[] list;
+		private static DevTag instance; 
+		private DevTag(){
+			list =new bool[MAX];
+			list[(int)Tag.GameClickListener]=true;
+			list[(int)Tag.UnOrdered]=false;
+			list[(int)Tag.MyPlayerScript]=false;
+			list[(int)Tag.BucketProperties]=false;
+			list[(int)Tag.Network]=true;
+			//list[(int)Tag.]=true;
+		}
+		public bool isAllowed(Tag tag){
+			if(list[(int)tag])
+				return true;
+			else
+				return false;
+		}
+		public static DevTag getInstance(){
+			if(instance==null)
+				instance=new DevTag();
+			return instance;
+		}
+	}
+	public class Dev{
+		public static void log(Tag tag, object s){
+			if(DevTag.getInstance().isAllowed(tag))
+				Debug.Log(tag+" : "+s);
+		}
+		public static void error(Tag tag, object s){
+			if(DevTag.getInstance().isAllowed(tag))
+				Debug.LogError(tag+" : "+s);
+		}
 	}
 }

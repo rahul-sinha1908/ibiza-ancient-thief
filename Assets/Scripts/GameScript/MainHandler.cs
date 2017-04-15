@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainHandler : MonoBehaviour {
 
@@ -19,8 +20,14 @@ public class MainHandler : MonoBehaviour {
 		
 	}
 
-	public void createServer(){
+	public void clickPlayGame(){
+		SceneManager.LoadScene("Level");
+	}
+	public void clickMultiplayer(){
 
+	}
+	public void createServer(){
+		
 	}
 
 

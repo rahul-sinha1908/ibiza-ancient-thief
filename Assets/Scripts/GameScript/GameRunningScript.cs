@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameRunningScript : MonoBehaviour {
+namespace MyGame{
+	public class GameRunningScript{
+		private static GameRunningScript instance;
+		public bool isClickActive, playSound;
+		public MyNetworkScript myNetworkScript;
+		public MyPlayerScript localPlayer, networkPlayer; 
+		public bool gamePlayable;
+		public GameClickListener gameClickListener;
+		public bool isServer;
+		private GameRunningScript(){
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		}
+		public static GameRunningScript getInstance(){
+			if(instance==null)
+				instance=new GameRunningScript();
+			return instance;
+		}
 	}
 }
