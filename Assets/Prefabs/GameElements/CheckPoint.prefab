@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4910390933215836}
   - component: {fileID: 135490063438166468}
   - component: {fileID: 114463062050160108}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 1931044863117350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 35, y: 35, z: 35}
   m_Children: []
   m_Father: {fileID: 4910390933215836}
   m_RootOrder: 1
@@ -116,7 +116,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8f364d86c49ed4f78bba685e28417060, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,6 +215,8 @@ MonoBehaviour:
   bullock: []
   horse: []
   boat: []
+  myMesh: {fileID: 23137294375731626}
+  myText: {fileID: 102214998641056582}
 --- !u!135 &135490063438166468
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -222,7 +224,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828765322589598}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 20

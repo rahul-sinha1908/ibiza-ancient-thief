@@ -20,11 +20,29 @@ public class MyNetworkScript : MonoBehaviour {
 	private List<IpAddress> ipList;
 	private string registeredName="infinito_divertido_ibiza_thief_19081997";
 	private int portNum=190897;
+
+
+//{start}Temp Section Delete After Testing is done.
+	public void startOnlineServer(){
+		Dev.log(Tag.Network,"You Clicked to initiate Server1");
+		Network.InitializeServer(2,portNum,true);
+		Dev.log(Tag.Network,"You Clicked to initiate Server3");
+	}
+	public void searchOnline(){
+		Dev.log(Tag.Network,"You Clicked to Search Server 1");
+		Network.Connect("127.0.0.1",portNum);
+		Dev.log(Tag.Network,"You Clicked to Search Server 2");
+	}
+//{close}Temp Section Delete After Testing is done.
+
+
+
 	// Use this for initialization
 	void Start () {
 		GameRunningScript.getInstance().myNetworkScript=this;
 		netView=GetComponent<NetworkView>();
 	}
+	
 	
 	private void offlineBroadcast(string gameName){
 		networkDisc.broadcastData=gameName;
@@ -33,7 +51,7 @@ public class MyNetworkScript : MonoBehaviour {
 		networkDisc.StartAsServer();
 	}
 	private void onlineBroadcast(string gameName){
-		MasterServer.RegisterHost(registeredName, gameName, "Data is here");
+		MasterServer.RegisterHost(registeredName, gameName, "Fuck the whole Universe");
 	}
 
 	/// <summary>
@@ -166,7 +184,7 @@ public class MyNetworkScript : MonoBehaviour {
 	[RPC]
 	void openScene(){
 		//TODO Open your own Scene
-		//SceneManager.LoadScene("Level");
+		SceneManager.LoadScene("Level");
 	}
 }
 

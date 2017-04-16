@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyGame{
+	public class UserPrefs{
+		public static string scrollSpeed="ScrollSpeed", mobPanSensitivity="MovePanSensitivity", moveSensitivity="NormalMoveSensitivity";
+	}
+	public enum CheckTypes{
+		Normal, Selected, PoliceUnselected, Cycle, Cart, Horse, Boat, CCart, CHorse, CBoat, CCartHorse, CCartBoat, CHorseBoat, CCartHorseBoat
+	}
 	public enum Tag{
-		UnOrdered, GameClickListener,MyPlayerScript, BucketProperties, Network
+		UnOrdered, GameClickListener,MyPlayerScript, Network
 	}
 	public class DevTag{
 		public const int MAX=100;
@@ -15,7 +21,6 @@ namespace MyGame{
 			list[(int)Tag.GameClickListener]=true;
 			list[(int)Tag.UnOrdered]=false;
 			list[(int)Tag.MyPlayerScript]=false;
-			list[(int)Tag.BucketProperties]=false;
 			list[(int)Tag.Network]=true;
 			//list[(int)Tag.]=true;
 		}

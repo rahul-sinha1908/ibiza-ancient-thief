@@ -14,7 +14,13 @@ public class MyPlayerScript : MonoBehaviour {
 		isServer=GameRunningScript.getInstance().isServer;
 	}
 	void Start () {
-		
+		if(isLocalPlayer){
+			GameRunningScript.getInstance().localPlayer=this;
+
+		}else{
+			GameRunningScript.getInstance().networkPlayer=this;
+			
+		}
 	}
 	
 	// Update is called once per frame
