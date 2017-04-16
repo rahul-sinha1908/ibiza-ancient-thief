@@ -132,18 +132,10 @@ public class GameClickListener : MonoBehaviour {
 		}
 	}
 	private void Pan(Vector2 touchDeltaPosition){
-		// if(!isServer)
-			// touchDeltaPosition=-touchDeltaPosition;
-		// if(Mathf.Abs(cam.transform.position.x)> GameContants.getInstance().sizeOfBoardX*GameContants.getInstance().boxSize/2 && Mathf.Abs(cam.transform.position.x-touchDeltaPosition.x)>Mathf.Abs(cam.transform.position.x))
-		// 	touchDeltaPosition.x=0;
-		// //TODO Take care of this constant value if ever camera position is changed
-		// if(Mathf.Abs(cam.transform.position.z)> 33*GameContants.getInstance().boxSize && Mathf.Abs(cam.transform.position.z-touchDeltaPosition.y)>Mathf.Abs(cam.transform.position.z))
-		// 	touchDeltaPosition.y=0;
 		Vector3 camF=cam.transform.forward;
 		camF=Vector3.ProjectOnPlane(camF,Vector3.up).normalized;
 		Vector3 camL=Vector3.Cross(Vector3.up, camF);
 		Vector3 tot = camF*touchDeltaPosition.y + camL*touchDeltaPosition.x;
-		//cam.transform.Translate(camF.x*touchDeltaPosition.x * camPanSpeed, 0, camF.z*touchDeltaPosition.y * camPanSpeed, Space.World);
 		cam.transform.Translate(-tot *camPanSpeed, Space.World);
 	}
 	// Update is called once per frame
@@ -154,6 +146,9 @@ public class GameClickListener : MonoBehaviour {
 
 		// if(.disableClicks)
 		// 	return;
+
+		if(Input.mousePosition.x>600)
+			return;
 		
 		checkClickListener();
 		rotate();

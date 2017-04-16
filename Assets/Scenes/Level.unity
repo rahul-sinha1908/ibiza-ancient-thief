@@ -10186,6 +10186,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 964442849}
     m_Modifications:
+    - target: {fileID: 114463062050160108, guid: cb5f55e8bf1b2478ea16fc6eb2047a35,
+        type: 2}
+      propertyPath: cycle.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4910390933215836, guid: cb5f55e8bf1b2478ea16fc6eb2047a35, type: 2}
       propertyPath: m_LocalPosition.x
       value: 393.2
@@ -10222,6 +10227,21 @@ Prefab:
       propertyPath: m_Name
       value: CheckPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114463062050160108, guid: cb5f55e8bf1b2478ea16fc6eb2047a35,
+        type: 2}
+      propertyPath: cycle.Array.data[0]
+      value: 
+      objectReference: {fileID: 1515549629}
+    - target: {fileID: 114463062050160108, guid: cb5f55e8bf1b2478ea16fc6eb2047a35,
+        type: 2}
+      propertyPath: cycle.Array.data[1]
+      value: 
+      objectReference: {fileID: 1766105138}
+    - target: {fileID: 114463062050160108, guid: cb5f55e8bf1b2478ea16fc6eb2047a35,
+        type: 2}
+      propertyPath: cycle.Array.data[2]
+      value: 
+      objectReference: {fileID: 1054364248}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb5f55e8bf1b2478ea16fc6eb2047a35, type: 2}
   m_IsPrefabParent: 0
@@ -12631,6 +12651,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+  checkTemp: -1
 --- !u!1 &1685893524
 GameObject:
   m_ObjectHideFlags: 0

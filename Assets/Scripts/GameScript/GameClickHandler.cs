@@ -6,7 +6,9 @@ using MyGame;
 public class GameClickHandler : MonoBehaviour {
 
 	public LayerMask layerMask;
+	public int checkTemp=-1;
 	private Camera cam;
+	private CheckPoints selectedPoints;
 	// Use this for initialization
 	void Start () {
 		cam=Camera.main;
@@ -19,12 +21,18 @@ public class GameClickHandler : MonoBehaviour {
 			if(point.collider.gameObject.GetComponent<CheckPoints>()==null)
 				return;
 			CheckPoints check =point.collider.gameObject.GetComponent<CheckPoints>();
+			if(!check.getClickable())
+				return;
+			if(selectedPoints!=null)
+				selectedPoints.setSelected(false);
+			check.setSelected(true);
+			selectedPoints = check;
 			Dev.log(Tag.GameClickListener,"Hit : "+check.name);
 		}
 	}
 
 	public void DoubleClick(Vector2 vect){
-		
+
 	}
 
 	// Update is called once per frame

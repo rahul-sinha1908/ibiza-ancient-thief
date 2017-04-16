@@ -211,12 +211,29 @@ MonoBehaviour:
   bHorse: 0
   bBoat: 0
   bMoney: 0
+  bShop: 0
   cycle: []
   bullock: []
   horse: []
   boat: []
   myMesh: {fileID: 23137294375731626}
   myText: {fileID: 102214998641056582}
+  materials:
+  - {fileID: 2100000, guid: 8f364d86c49ed4f78bba685e28417060, type: 2}
+  - {fileID: 2100000, guid: 2de2571b6c8fa48baacc45fe2858187a, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 1e6335d67429e4cfaa139e446f557ae5, type: 2}
+  - {fileID: 2100000, guid: 74e1210a6a7254515a43eb6089136c27, type: 2}
+  - {fileID: 2100000, guid: eb3b382362e334634b0dc38b94a76166, type: 2}
+  - {fileID: 2100000, guid: de7d7db929b224a2f949035704f97d60, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &135490063438166468
 SphereCollider:
   m_ObjectHideFlags: 1
