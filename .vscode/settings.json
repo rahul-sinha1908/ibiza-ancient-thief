@@ -57,21 +57,11 @@
 		"**/*.unity":true,
 		"build/":true,
 		"Build/":true,
-		"Assets/Editor":true,
-		"Assets/Environment":true,
-		"Assets/Materials":true,
-		"Assets/Prefabs":true,
-		"Assets/Scenes":true,
-		"Assets/Standard Assets":true,
-		"Assets/Streets":true,
-		"Assets/Terrains":true,
-		"Assets/Textures":true,
 		"Library/":true,
 		"library/":true,
 		"obj/":true,
 		"Obj/":true,
-		"ProjectSettings/":true,
-		"temp/":true,
+		"ProjectSettings/":true,		"temp/":true,
 		"Temp/":true
 	}
 }
