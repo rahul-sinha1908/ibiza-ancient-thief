@@ -13,8 +13,9 @@ namespace MyGame{
 		public MyPlayerScript localPlayer, networkPlayer; 
 		public bool gamePlayable;
 		public GameClickListener gameClickListener;
+		public GameClickHandler gameClickHandler;
+		public Character localPlayerChar, networkPlayerChar;
 		public bool isServer;
-		public Character myChar;
 		private GameRunningScript(){
 
 		}

@@ -10,11 +10,20 @@ public class GameClickHandler : MonoBehaviour {
 	public int checkTemp=-1;
 	private Camera cam;
 	private CheckPoints selectedPoints;
-
+	public List<CheckPoints> allChecks;
 	public List<CheckPoints> spawning1, spawning2, spawning3, spawning4, spawning5, spawningX;
+	public GameObject playerprefab;
+	private GameObject myPlayerObject;
+	private MyPlayerScript myPlayerScript;
 	// Use this for initialization
 	void Start () {
 		cam=Camera.main;
+		GameRunningScript.getInstance().gameClickHandler=this;
+		myPlayerObject = (GameObject)Network.Instantiate(playerprefab,Vector3.zero, Quaternion.identity, 0);
+		if(myPlayerObject!=null)
+			myPlayerScript = myPlayerObject.GetComponent<MyPlayerScript>();
+			if(myPlayerScript!=null)
+				myPlayerScript.initiateChecks(allChecks);
 	}
 	
 	public void SingleClick(Vector2 vect){
@@ -57,7 +66,6 @@ public class GameClickHandler : MonoBehaviour {
 		}
 		return null;
 	}
-
 	public bool checkExistence(List<CheckPoints> list, CheckPoints check){
 		foreach(CheckPoints ch in list){
 			if(ch.name == check.name){
@@ -75,4 +83,8 @@ public class GameClickHandler : MonoBehaviour {
 		}
 		return spawningX[r];
 	}
+	public List<CheckPoints> getAllCheks(){
+		return allChecks;
+	}
+
 }

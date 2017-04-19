@@ -25,13 +25,13 @@ public class MyNetworkScript : MonoBehaviour {
 //{start}Temp Section Delete After Testing is done.
 	public void startOnlineServer(){
 		Dev.log(Tag.Network,"You Clicked to initiate Server1");
-		GameRunningScript.getInstance().myChar=Character.Police;
+		GameRunningScript.getInstance().localPlayerChar=Character.Police;
 		Network.InitializeServer(2,portNum,true);
 		Dev.log(Tag.Network,"You Clicked to initiate Server3");
 	}
 	public void searchOnline(){
 		Dev.log(Tag.Network,"You Clicked to Search Server 1");
-		GameRunningScript.getInstance().myChar=Character.Thief;
+		GameRunningScript.getInstance().networkPlayerChar=Character.Thief;
 		Network.Connect("127.0.0.1",portNum);
 		Dev.log(Tag.Network,"You Clicked to Search Server 2");
 	}

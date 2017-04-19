@@ -8,14 +8,11 @@ public class GameClickListener : MonoBehaviour {
 	public GameClickHandler clickHandler;
 	private Vector3 trackDragVect, trackClickVect;
 	private Camera cam;
-	public GameObject playerprefab;
-
 	private bool trackClicks;
 	private float trackClickCount, camPanSpeed=10f, doubleClickTimeLimit=0.1f;
 	// Use this for initialization
 	void Start () {
 		cam=Camera.main;
-		Network.Instantiate(playerprefab,Vector3.zero, Quaternion.identity, 0);
 	}
 	
 	private void detectZoom(float wheel){
@@ -72,18 +69,22 @@ public class GameClickListener : MonoBehaviour {
 
 			//if (transform.up.y > 0 && transform.forward.y<0) {
 			//Debug.Log(angleDown(transform.forward));
+			float minA=10, maxA=90, rotSpeed=10;
+
+			pos=pos*rotSpeed;
 			float Vangle = angleDown (transform.forward);
-			if (Vangle >30  && Vangle<90) {
+			if (Vangle >minA  && Vangle<maxA) {
 				transform.RotateAround (transform.position, transform.right, -pos.y * rotspeed);
 			} else {
 				transform.RotateAround (transform.position, transform.right, -pos.y * rotspeed);
 				//if (transform.up.y < 0 || transform.forward.y>0)
 				float cV=angleDown(transform.forward);
-				if((Vangle < 30 && cV<Vangle) || (Vangle>90 && cV>Vangle))
+				if((Vangle < minA && cV<Vangle) || (Vangle>maxA && cV>Vangle))
 				//if (Vangle < eV || Vangle > eV)
 					transform.RotateAround (transform.position, transform.right, pos.y * rotspeed);
 			}
 			transform.RotateAround(transform.position, Vector3.up, pos.x * rotspeed);
+			intC = Input.mousePosition;
 		}
 	}
 	private void checkClickListener(){
