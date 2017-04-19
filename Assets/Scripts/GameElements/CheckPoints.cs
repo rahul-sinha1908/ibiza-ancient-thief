@@ -17,11 +17,19 @@ public class CheckPoints : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isClickable=false;
+		if(cycle.Count>0)
+			bCycle=true;
+		if(bullock.Count>0)
+			bBullock=true;
+		if(horse.Count>0)
+			bHorse=true;
+		if(boat.Count>0)
+			bBoat=true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		 
 	}
 
 	public void setSelected(bool b){
@@ -95,3 +103,4 @@ public class CheckPoints : MonoBehaviour {
 		return isClickable;
 	}
 }
+

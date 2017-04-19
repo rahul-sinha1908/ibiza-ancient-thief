@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyGame{
+	public enum Character{
+		Police, Thief
+	}
 	public class GameRunningScript{
 		private static GameRunningScript instance;
 		public bool isClickActive, playSound;
@@ -11,6 +14,7 @@ namespace MyGame{
 		public bool gamePlayable;
 		public GameClickListener gameClickListener;
 		public bool isServer;
+		public Character myChar;
 		private GameRunningScript(){
 
 		}

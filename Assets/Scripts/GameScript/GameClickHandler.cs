@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using MyGame;
 
@@ -9,6 +10,8 @@ public class GameClickHandler : MonoBehaviour {
 	public int checkTemp=-1;
 	private Camera cam;
 	private CheckPoints selectedPoints;
+
+	public List<CheckPoints> spawning1, spawning2, spawning3, spawning4, spawning5, spawningX;
 	// Use this for initialization
 	void Start () {
 		cam=Camera.main;
@@ -38,5 +41,38 @@ public class GameClickHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+	public CheckPoints selectRandomPolice(int i){
+		System.Random random=new System.Random();
+		if(i==1){
+			return spawning1[random.Next(0, spawning1.Count)];
+		}else if(i==2){
+			return spawning2[random.Next(0, spawning2.Count)];
+		}else if(i==3){
+			return spawning3[random.Next(0, spawning3.Count)];
+		}else if(i==4){
+			return spawning4[random.Next(0, spawning4.Count)];
+		}else if(i==5){
+			return spawning5[random.Next(0, spawning5.Count)];
+		}
+		return null;
+	}
+
+	public bool checkExistence(List<CheckPoints> list, CheckPoints check){
+		foreach(CheckPoints ch in list){
+			if(ch.name == check.name){
+				return true;
+			}
+		}
+		return false;
+	}
+	public CheckPoints selectThiefLoc(List<CheckPoints> list){
+		System.Random random = new System.Random();
+		int r=random.Next(0, spawningX.Count);
+		
+		while(checkExistence(list, spawningX[r])){
+			r=random.Next(0, spawningX.Count);
+		}
+		return spawningX[r];
 	}
 }
