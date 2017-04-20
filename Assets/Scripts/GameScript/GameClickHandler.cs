@@ -102,7 +102,10 @@ public class GameClickHandler : MonoBehaviour {
 	}
 
 	public void sendMoves(){
+		if(!GameRunningScript.getInstance().isClickActive)
+			return;
 		GameRunningScript.getInstance().isClickActive=false;
+		Dev.log(Tag.GameClickListener, "Clicked the UI");
 		GameRunningScript.getInstance().myPlayer.sendMoves();
 	}
 

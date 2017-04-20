@@ -20,7 +20,7 @@ namespace MyGame{
 			list =new bool[MAX];
 			list[(int)Tag.GameClickListener]=true;
 			list[(int)Tag.UnOrdered]=false;
-			list[(int)Tag.MyPlayerScript]=false;
+			list[(int)Tag.MyPlayerScript]=true;
 			list[(int)Tag.Network]=true;
 			//list[(int)Tag.]=true;
 		}

@@ -70,28 +70,46 @@ public class MyPlayerScript : MonoBehaviour {
 	}
 
 	public void sendMoves(){
+		Dev.log(Tag.MyPlayerScript, "Came to send moves");
 		if(GameRunningScript.getInstance().countDown>-1){
-
+			netView.RPC("changeTimeLeft", RPCMode.AllBuffered, new object[]{-5});
+		}else{
+			StartCoroutine(countDown());
 		}
-		StartCoroutine(countDown());
 	}
 
 	private IEnumerator countDown(){
 		int t=10;
+		Dev.log(Tag.MyPlayerScript, "Init the count down service.");
 		while(true){
+			if(GameRunningScript.getInstance().countDown <=-5){
+				t=0;
+			}
 			if(t<-1)
 				t=-1;
-			if(t==-1)
-				yield break;
 			else{
 				netView.RPC("changeTimeLeft", RPCMode.AllBuffered, new object[]{t});
+				if(t==-1)
+					yield break;
 			}
 			t--;
 			yield return new WaitForSeconds(1);
 		}
 	}
+	private void sendYourRespectiveMoves(){
+		GameRunningScript.getInstance().isClickActive=true;
+		Dev.log(Tag.MyPlayerScript, "Moves Send !!");
+		if(myChar==Character.Police){
+			//TODO Send all police moves
+		}else{
+			//TODO Send all thief moves
+		}
+	}
+	
 	[RPC]
 	public void changeTimeLeft(int t){
 		GameRunningScript.getInstance().countDown=t;
+		if(t==0)
+			sendYourRespectiveMoves();
 	}
 }
