@@ -10,14 +10,19 @@ namespace MyGame{
 		private static GameRunningScript instance;
 		public bool isClickActive, playSound;
 		public MyNetworkScript myNetworkScript;
-		public MyPlayerScript localPlayer, networkPlayer; 
+		public MyPlayerScript myPlayer;
 		public bool gamePlayable;
 		public GameClickListener gameClickListener;
 		public GameClickHandler gameClickHandler;
-		public Character localPlayerChar, networkPlayerChar;
+		public Character myPlayerChar;
+		public List<CheckPoints> policePos;
+		public CheckPoints thiefPos;
+		public int countDown;
 		public bool isServer;
 		private GameRunningScript(){
-
+			policePos=new List<CheckPoints>();
+			isClickActive=true;
+			countDown=-1;
 		}
 		public static GameRunningScript getInstance(){
 			if(instance==null)

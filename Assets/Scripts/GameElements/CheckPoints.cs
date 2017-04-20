@@ -13,6 +13,7 @@ public class CheckPoints : MonoBehaviour {
 	public TextMesh myText;
 	public List<Material> materials;
 	private bool isClickable;
+	private int index;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,9 @@ public class CheckPoints : MonoBehaviour {
 			bHorse=true;
 		if(boat.Count>0)
 			bBoat=true;
+
+		string tname = transform.name;
+		index = int.Parse(tname.Substring(tname.IndexOf('(')+1,tname.LastIndexOf(')') - tname.IndexOf('(')-1))-1;
 	}
 	
 	// Update is called once per frame
@@ -32,6 +36,9 @@ public class CheckPoints : MonoBehaviour {
 		 
 	}
 
+	public int getIndex(){
+		return index;
+	}
 	public void setSelected(bool b){
 		if(b){
 			//TODO Write Code to select the current
@@ -89,7 +96,7 @@ public class CheckPoints : MonoBehaviour {
 			}
 		}
 	}
-	private void setType(CheckTypes type){
+	public void setType(CheckTypes type){
 		if(type==CheckTypes.Normal)
 			isClickable=false;
 		else

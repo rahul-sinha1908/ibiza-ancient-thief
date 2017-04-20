@@ -2,31 +2,33 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using MyGame;
 
 public class GameClickHandler : MonoBehaviour {
 
 	public LayerMask layerMask;
 	public int checkTemp=-1;
+	public GameObject timerWindow;
+	public Text timerText;
 	private Camera cam;
 	private CheckPoints selectedPoints;
 	public List<CheckPoints> allChecks;
 	public List<CheckPoints> spawning1, spawning2, spawning3, spawning4, spawning5, spawningX;
-	public GameObject playerprefab;
-	private GameObject myPlayerObject;
-	private MyPlayerScript myPlayerScript;
+	public MyPlayerScript myPlayerScript;
 	// Use this for initialization
 	void Start () {
 		cam=Camera.main;
 		GameRunningScript.getInstance().gameClickHandler=this;
-		myPlayerObject = (GameObject)Network.Instantiate(playerprefab,Vector3.zero, Quaternion.identity, 0);
-		if(myPlayerObject!=null)
-			myPlayerScript = myPlayerObject.GetComponent<MyPlayerScript>();
-			if(myPlayerScript!=null)
-				myPlayerScript.initiateChecks(allChecks);
+		if(GameRunningScript.getInstance().myPlayerChar==Character.Police){
+			myPlayerScript.getPolices();
+		}
+		myPlayerScript.initiateChecks(allChecks);
 	}
 	
 	public void SingleClick(Vector2 vect){
+		if(GameRunningScript.getInstance().isClickActive==false)
+			return;
 		Ray ray = cam.ScreenPointToRay(vect);
 		RaycastHit point;
 		if(Physics.Raycast(ray,out point, 20000, layerMask)){
@@ -44,14 +46,26 @@ public class GameClickHandler : MonoBehaviour {
 	}
 
 	public void DoubleClick(Vector2 vect){
-
+		if(GameRunningScript.getInstance().isClickActive==false)
+			return;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		
+		showCountDown();
 	}
-	public CheckPoints selectRandomPolice(int i){
+
+    private void showCountDown()
+    {
+        if(GameRunningScript.getInstance().countDown>0){
+			timerWindow.SetActive(true);
+			timerText.text=""+GameRunningScript.getInstance().countDown;
+		}else{
+			timerWindow.SetActive(false);
+		}
+    }
+
+    public CheckPoints selectRandomPolice(int i){
 		System.Random random=new System.Random();
 		if(i==1){
 			return spawning1[random.Next(0, spawning1.Count)];
@@ -86,5 +100,11 @@ public class GameClickHandler : MonoBehaviour {
 	public List<CheckPoints> getAllCheks(){
 		return allChecks;
 	}
+
+	public void sendMoves(){
+		GameRunningScript.getInstance().isClickActive=false;
+		GameRunningScript.getInstance().myPlayer.sendMoves();
+	}
+
 
 }

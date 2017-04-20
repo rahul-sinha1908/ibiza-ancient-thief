@@ -2430,6 +2430,64 @@ Terrain:
   m_BakeLightProbesForTrees: 1
   m_ScaleInLightmap: 0.0512
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!1001 &195152173
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412453930321644, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 148139693245216132, guid: b53230eba89c8443bbffffb910b3e973,
+        type: 2}
+      propertyPath: m_ViewID.m_ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148139693245216132, guid: b53230eba89c8443bbffffb910b3e973,
+        type: 2}
+      propertyPath: m_ViewID.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b53230eba89c8443bbffffb910b3e973, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &195152175 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114028269658032082, guid: b53230eba89c8443bbffffb910b3e973,
+    type: 2}
+  m_PrefabInternal: {fileID: 195152173}
+  m_Script: {fileID: 11500000, guid: f18bcd3a6588b4a5db5baf8a7690fe7f, type: 3}
 --- !u!1001 &203114794
 Prefab:
   m_ObjectHideFlags: 0
@@ -16852,7 +16910,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4175ee1ffb40a4df3987374289601f99, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16904,7 +16962,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1624691497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1684276877}
+        m_MethodName: sendMoves
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1626127520
@@ -17875,8 +17944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickHandler: {fileID: 1684276877}
-  playerprefab: {fileID: 1930656618453700, guid: b53230eba89c8443bbffffb910b3e973,
-    type: 2}
 --- !u!114 &1684276877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17892,6 +17959,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   checkTemp: -1
+  timerWindow: {fileID: 1726622120}
+  timerText: {fileID: 1875518866}
   allChecks:
   - {fileID: 2140697432}
   - {fileID: 1674931719}
@@ -18255,8 +18324,7 @@ MonoBehaviour:
   - {fileID: 364434681}
   - {fileID: 1412049409}
   - {fileID: 1672643507}
-  playerprefab: {fileID: 1930656618453700, guid: b53230eba89c8443bbffffb910b3e973,
-    type: 2}
+  myPlayerScript: {fileID: 195152175}
 --- !u!1 &1685893524
 GameObject:
   m_ObjectHideFlags: 0
@@ -19028,7 +19096,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ebee752b1f3e64a28ac2ee9598d7f054, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.328}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
