@@ -6,6 +6,9 @@ namespace MyGame{
 	public enum Character{
 		Police, Thief
 	}
+	public enum TransportType{
+		Cycle, BullockCart, Horse, Boat
+	}
 	public class GameRunningScript{
 		private static GameRunningScript instance;
 		public bool isClickActive, playSound;
@@ -15,12 +18,13 @@ namespace MyGame{
 		public GameClickListener gameClickListener;
 		public GameClickHandler gameClickHandler;
 		public Character myPlayerChar;
-		public List<CheckPoints> policePos;
-		public CheckPoints thiefPos;
+		public List<PlayerControlScript> policePos;
+		public PlayerControlScript thiefPos;
+		public PlayerControlScript selectedPlayer;
 		public int countDown;
 		public bool isServer;
 		private GameRunningScript(){
-			policePos=new List<CheckPoints>();
+			policePos=new List<PlayerControlScript>();
 			isClickActive=true;
 			countDown=-1;
 		}

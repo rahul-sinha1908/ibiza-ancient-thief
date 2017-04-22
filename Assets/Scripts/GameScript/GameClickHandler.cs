@@ -20,10 +20,10 @@ public class GameClickHandler : MonoBehaviour {
 	void Start () {
 		cam=Camera.main;
 		GameRunningScript.getInstance().gameClickHandler=this;
-		if(GameRunningScript.getInstance().myPlayerChar==Character.Police){
+		if(GameRunningScript.getInstance().myPlayerChar==Character.Thief){
 			myPlayerScript.getPolices();
 		}
-		myPlayerScript.initiateChecks(allChecks);
+		//myPlayerScript.initiateChecks(allChecks);
 	}
 	
 	public void SingleClick(Vector2 vect){
@@ -80,15 +80,15 @@ public class GameClickHandler : MonoBehaviour {
 		}
 		return null;
 	}
-	public bool checkExistence(List<CheckPoints> list, CheckPoints check){
-		foreach(CheckPoints ch in list){
-			if(ch.name == check.name){
+	public bool checkExistence(List<PlayerControlScript> list, CheckPoints check){
+		foreach(PlayerControlScript ch in list){
+			if(ch.getCurrentCheck().name == check.name){
 				return true;
 			}
 		}
 		return false;
 	}
-	public CheckPoints selectThiefLoc(List<CheckPoints> list){
+	public CheckPoints selectThiefLoc(List<PlayerControlScript> list){
 		System.Random random = new System.Random();
 		int r=random.Next(0, spawningX.Count);
 		
@@ -99,13 +99,5 @@ public class GameClickHandler : MonoBehaviour {
 	}
 	public List<CheckPoints> getAllCheks(){
 		return allChecks;
-	}
-
-	public void sendMoves(){
-		if(!GameRunningScript.getInstance().isClickActive)
-			return;
-		GameRunningScript.getInstance().isClickActive=false;
-		Dev.log(Tag.GameClickListener, "Clicked the UI");
-		GameRunningScript.getInstance().myPlayer.sendMoves();
 	}
 }
