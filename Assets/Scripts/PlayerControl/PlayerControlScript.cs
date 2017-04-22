@@ -60,10 +60,14 @@ public class PlayerControlScript : MonoBehaviour {
 		if(isDisabled)
 			return;
 		if(b){
+			if(GameRunningScript.getInstance().selectedPlayer!=this){
+				if(GameRunningScript.getInstance().selectedPlayer!=null)
+					GameRunningScript.getInstance().selectedPlayer.setSelected(false);
+			}else
+				return;
+			GameRunningScript.getInstance().selectedPlayer=this;
 			if(isClickable){
 				//TODO Do operation to highlight
-				GameRunningScript.getInstance().selectedPlayer=this;
-
 			}else{
 				if(isMoving){
 					//TODO Show the timeleft for cool down
@@ -73,6 +77,7 @@ public class PlayerControlScript : MonoBehaviour {
 			}
 		}else{
 			//TODO Do operation to De highlight
+			//TOOD Remove all cooldown and time left Window
 		}
 	}
 	public CheckPoints getCurrentCheck(){

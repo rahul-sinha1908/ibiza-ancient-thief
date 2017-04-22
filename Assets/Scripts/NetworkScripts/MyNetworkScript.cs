@@ -23,6 +23,7 @@ public class MyNetworkScript : MonoBehaviour {
 
 
 //{start}Temp Section Delete After Testing is done.
+	public InputField input;
 	public void startOnlineServer(){
 		Dev.log(Tag.Network,"You Clicked to initiate Server1");
 		GameRunningScript.getInstance().myPlayerChar=Character.Police;
@@ -32,7 +33,11 @@ public class MyNetworkScript : MonoBehaviour {
 	public void searchOnline(){
 		Dev.log(Tag.Network,"You Clicked to Search Server 1");
 		GameRunningScript.getInstance().myPlayerChar=Character.Thief;
-		Network.Connect("127.0.0.1",portNum);
+		if(input.text==null || input.text=="" || input.text.Length==0)
+			Network.Connect("127.0.0.1",portNum);
+		else
+			Network.Connect(input.text,portNum);
+
 		Dev.log(Tag.Network,"You Clicked to Search Server 2");
 	}
 //{close}Temp Section Delete After Testing is done.
@@ -63,6 +68,7 @@ public class MyNetworkScript : MonoBehaviour {
 	{
 		Dev.log(Tag.Network, "Now you are the server.");
 		GameRunningScript.getInstance().isServer=true;
+		input.text=Network.player.ipAddress;
 	}
 	
 	
