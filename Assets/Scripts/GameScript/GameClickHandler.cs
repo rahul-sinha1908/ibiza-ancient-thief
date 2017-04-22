@@ -108,6 +108,4 @@ public class GameClickHandler : MonoBehaviour {
 		Dev.log(Tag.GameClickListener, "Clicked the UI");
 		GameRunningScript.getInstance().myPlayer.sendMoves();
 	}
-
-
 }

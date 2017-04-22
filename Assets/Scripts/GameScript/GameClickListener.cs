@@ -10,9 +10,11 @@ public class GameClickListener : MonoBehaviour {
 	private Camera cam;
 	private bool trackClicks;
 	private float trackClickCount, camPanSpeed=10f, doubleClickTimeLimit=0.1f;
+	private bool shallRotate;
 	// Use this for initialization
 	void Start () {
 		cam=Camera.main;
+		shallRotate=false;
 	}
 	
 	private void detectZoom(float wheel){
@@ -40,8 +42,14 @@ public class GameClickListener : MonoBehaviour {
 			deltaMagnitudeDiff=-wheel* PlayerPrefs.GetInt(UserPrefs.scrollSpeed, 400);
 		}
 		
-		if(!(cam.transform.position.y<5 && cam.transform.position.y+deltaMagnitudeDiff<cam.transform.position.y))
-			cam.transform.Translate(-cam.transform.forward*deltaMagnitudeDiff, Space.World);
+		if(cam.orthographic){
+			cam.orthographicSize+=deltaMagnitudeDiff;
+		}
+		else{
+			if(!(cam.transform.position.y<5 && cam.transform.position.y+deltaMagnitudeDiff<cam.transform.position.y))
+				if(!(cam.transform.position.y>200 && cam.transform.position.y+deltaMagnitudeDiff>cam.transform.position.y))
+					cam.transform.Translate(-cam.transform.forward*deltaMagnitudeDiff, Space.World);
+		}
 	}
 	
 	private void SingleClick(Vector2 vect)
@@ -152,7 +160,8 @@ public class GameClickListener : MonoBehaviour {
 			return;
 		
 		checkClickListener();
-		rotate();
+		if(shallRotate)
+			rotate();
 		if(Application.isMobilePlatform){
 			if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved) {
 				Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
