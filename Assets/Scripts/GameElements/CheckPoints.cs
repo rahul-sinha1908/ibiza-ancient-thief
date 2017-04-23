@@ -42,7 +42,7 @@ public class CheckPoints : MonoBehaviour {
 	public void setSelected(bool b){
 		if(b){
 			//TODO Write Code to select the current
-			setType(CheckTypes.Selected);
+			setType(CheckTypes.Normal);
 			foreach(Transform t in cycle){
 				if(t==null)
 					continue;

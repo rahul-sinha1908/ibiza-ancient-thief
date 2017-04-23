@@ -54,7 +54,14 @@ public class MyPlayerScript : MonoBehaviour {
 		
 	}
 
-
+	public void sendMove(CheckPoints check, TransportType type){
+		if(GameRunningScript.getInstance().myPlayerChar==Character.Police){
+			netView.RPC("policeSendMove", RPCMode.OthersBuffered, new object[]{GameRunningScript.getInstance().selectedPlayer.getIndex()
+							,check.getIndex(), (int)type});
+		}else{
+			netView.RPC("thiefSendMoves", RPCMode.OthersBuffered, new object[]{(int)type});
+		}
+	}
 
 
 

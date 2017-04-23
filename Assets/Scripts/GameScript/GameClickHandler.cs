@@ -32,16 +32,21 @@ public class GameClickHandler : MonoBehaviour {
 		Ray ray = cam.ScreenPointToRay(vect);
 		RaycastHit point;
 		if(Physics.Raycast(ray,out point, 20000, layerMask)){
-			if(point.collider.gameObject.GetComponent<CheckPoints>()==null)
-				return;
-			CheckPoints check =point.collider.gameObject.GetComponent<CheckPoints>();
-			if(!check.getClickable())
-				return;
-			if(selectedPoints!=null)
-				selectedPoints.setSelected(false);
-			check.setSelected(true);
-			selectedPoints = check;
-			Dev.log(Tag.GameClickListener,"Hit : "+check.name);
+			if(point.collider.gameObject.GetComponent<PlayerControlScript>()!=null){
+				PlayerControlScript player=point.collider.gameObject.GetComponent<PlayerControlScript>();
+				player.setSelected(true);
+			}else if(point.collider.gameObject.GetComponent<CheckPoints>()!=null){
+				CheckPoints check =point.collider.gameObject.GetComponent<CheckPoints>();
+				if(!check.getClickable())
+					return;
+				if(GameRunningScript.getInstance().selectedPlayer==null)
+					return;
+				//TODO Do a method to decide the transport method
+				GameRunningScript.getInstance().myPlayer.sendMove(check, TransportType.Cycle);
+				GameRunningScript.getInstance().selectedPlayer.moveMyPlayer(check, TransportType.Cycle);
+				Dev.log(Tag.GameClickListener,"Hit : "+check.name);
+			}
+			
 		}
 	}
 

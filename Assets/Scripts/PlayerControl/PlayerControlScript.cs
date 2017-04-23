@@ -49,6 +49,9 @@ public class PlayerControlScript : MonoBehaviour {
 		character=c;
 		index=ind;
 		currentCheck=ch;
+		if(character!=GameRunningScript.getInstance().myPlayerChar){
+			isDisabled=true;
+		}
 		Dev.log(Tag.PlayerControllerScript, "Initiatin the player at "+currentCheck.transform.position+" : "+currentCheck.getIndex());
 		transform.position=currentCheck.transform.position;
 		meshRenderer.material=unselectedMat;
@@ -56,8 +59,11 @@ public class PlayerControlScript : MonoBehaviour {
 		setSelected(false);
 	}
 
+	public int getIndex(){
+		return index;
+	}
 	public void moveMyPlayer(CheckPoints ch, TransportType type){
-		currentCheck.setSelected(false);
+		setSelected(false);
 		StartCoroutine(moveToPlace(currentCheck, ch, type));
 	}
 	private float getSpeed(TransportType type){
@@ -75,6 +81,7 @@ public class PlayerControlScript : MonoBehaviour {
 			transform.position=cur;
 			if(cur==finalPos)
 				break;
+			yield return new WaitForEndOfFrame();
 		}
 		isMoving=false;
 		if(GameRunningScript.getInstance().selectedPlayer==this){
@@ -91,7 +98,8 @@ public class PlayerControlScript : MonoBehaviour {
 		currentCheck=next;
 		isClickable=true;
 		if(GameRunningScript.getInstance().selectedPlayer==this){
-			controller.hideAllWindows();
+			setSelected(false);
+			setSelected(true);
 		}
 		yield break;
 	}
@@ -108,6 +116,7 @@ public class PlayerControlScript : MonoBehaviour {
 			meshRenderer.material=selectedMat;
 			if(isClickable){
 				//TODO Do operation to highlight
+				currentCheck.setSelected(true);
 			}else{
 				if(isMoving){
 					//TODO Show the timeleft for cool down
@@ -120,7 +129,11 @@ public class PlayerControlScript : MonoBehaviour {
 			}
 		}else{
 			//TODO Do operation to De highlight
+			currentCheck.setSelected(false);
 			//TOOD Remove all cooldown and time left Window
+			controller.hideAllWindows();
+			meshRenderer.material=unselectedMat;
+			GameRunningScript.getInstance().selectedPlayer=null;
 		}
 	}
 	public CheckPoints getCurrentCheck(){

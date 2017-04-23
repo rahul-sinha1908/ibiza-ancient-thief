@@ -1348,7 +1348,8 @@ GameObject:
   m_Component:
   - component: {fileID: 103094006}
   - component: {fileID: 103094007}
-  m_Layer: 0
+  - component: {fileID: 103094008}
+  m_Layer: 12
   m_Name: Police1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1383,6 +1384,18 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: cace987b7e93349f3aa5519a04c432ca, type: 2}
   unselectedMat: {fileID: 2100000, guid: 41c9b8e2b358d494db61215889b8bbc0, type: 2}
   meshRenderer: {fileID: 1570409024}
+--- !u!135 &103094008
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 103094005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &112650370
 Prefab:
   m_ObjectHideFlags: 0
@@ -2385,7 +2398,8 @@ GameObject:
   m_Component:
   - component: {fileID: 172379837}
   - component: {fileID: 172379838}
-  m_Layer: 0
+  - component: {fileID: 172379839}
+  m_Layer: 12
   m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2420,6 +2434,18 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: cace987b7e93349f3aa5519a04c432ca, type: 2}
   unselectedMat: {fileID: 2100000, guid: f8e780bbb4f2e4916a612b30c7a68f96, type: 2}
   meshRenderer: {fileID: 1764078665}
+--- !u!135 &172379839
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172379836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &177362214
 GameObject:
   m_ObjectHideFlags: 0
@@ -7042,7 +7068,8 @@ GameObject:
   m_Component:
   - component: {fileID: 485754703}
   - component: {fileID: 485754704}
-  m_Layer: 0
+  - component: {fileID: 485754705}
+  m_Layer: 12
   m_Name: Police3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7077,6 +7104,18 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: cace987b7e93349f3aa5519a04c432ca, type: 2}
   unselectedMat: {fileID: 2100000, guid: 41c9b8e2b358d494db61215889b8bbc0, type: 2}
   meshRenderer: {fileID: 2052966473}
+--- !u!135 &485754705
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485754702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &499376707
 Prefab:
   m_ObjectHideFlags: 0
@@ -7932,7 +7971,8 @@ GameObject:
   m_Component:
   - component: {fileID: 572769605}
   - component: {fileID: 572769606}
-  m_Layer: 0
+  - component: {fileID: 572769607}
+  m_Layer: 12
   m_Name: Police4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7967,6 +8007,18 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: cace987b7e93349f3aa5519a04c432ca, type: 2}
   unselectedMat: {fileID: 2100000, guid: 41c9b8e2b358d494db61215889b8bbc0, type: 2}
   meshRenderer: {fileID: 1910941653}
+--- !u!135 &572769607
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572769604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &573774655
 GameObject:
   m_ObjectHideFlags: 0
@@ -8769,7 +8821,8 @@ GameObject:
   m_Component:
   - component: {fileID: 612342211}
   - component: {fileID: 612342212}
-  m_Layer: 0
+  - component: {fileID: 612342213}
+  m_Layer: 12
   m_Name: Police2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8804,6 +8857,18 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: cace987b7e93349f3aa5519a04c432ca, type: 2}
   unselectedMat: {fileID: 2100000, guid: 41c9b8e2b358d494db61215889b8bbc0, type: 2}
   meshRenderer: {fileID: 1050594505}
+--- !u!135 &612342213
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612342210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &616727784
 Prefab:
   m_ObjectHideFlags: 0
@@ -8859,7 +8924,6 @@ GameObject:
   m_Component:
   - component: {fileID: 622272114}
   - component: {fileID: 622272117}
-  - component: {fileID: 622272116}
   - component: {fileID: 622272115}
   m_Layer: 0
   m_Name: Sphere
@@ -8913,18 +8977,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &622272116
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 622272113}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &622272117
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13667,7 +13719,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1050594504}
   - component: {fileID: 1050594507}
-  - component: {fileID: 1050594506}
   - component: {fileID: 1050594505}
   m_Layer: 0
   m_Name: Sphere
@@ -13721,18 +13772,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1050594506
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1050594503}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1050594507
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18795,7 +18834,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1570409023}
   - component: {fileID: 1570409026}
-  - component: {fileID: 1570409025}
   - component: {fileID: 1570409024}
   m_Layer: 0
   m_Name: Sphere
@@ -18849,18 +18887,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1570409025
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1570409022}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1570409026
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20343,7 +20369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
   checkTemp: -1
   timerWindow: {fileID: 1726622120}
   timerText: {fileID: 1875518866}
@@ -21962,7 +21988,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1764078664}
   - component: {fileID: 1764078667}
-  - component: {fileID: 1764078666}
   - component: {fileID: 1764078665}
   m_Layer: 0
   m_Name: Sphere
@@ -22016,18 +22041,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1764078666
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1764078663}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1764078667
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23565,7 +23578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1910941652}
   - component: {fileID: 1910941655}
-  - component: {fileID: 1910941654}
   - component: {fileID: 1910941653}
   m_Layer: 0
   m_Name: Sphere
@@ -23619,18 +23631,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1910941654
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1910941651}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1910941655
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -24831,7 +24831,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2052966472}
   - component: {fileID: 2052966475}
-  - component: {fileID: 2052966474}
   - component: {fileID: 2052966473}
   m_Layer: 0
   m_Name: Sphere
@@ -24885,18 +24884,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &2052966474
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2052966471}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2052966475
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25020,7 +25007,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2061483903}
   - component: {fileID: 2061483904}
-  m_Layer: 0
+  - component: {fileID: 2061483905}
+  m_Layer: 12
   m_Name: Police5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25055,6 +25043,18 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: cace987b7e93349f3aa5519a04c432ca, type: 2}
   unselectedMat: {fileID: 2100000, guid: 41c9b8e2b358d494db61215889b8bbc0, type: 2}
   meshRenderer: {fileID: 622272115}
+--- !u!135 &2061483905
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061483902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2061632647
 GameObject:
   m_ObjectHideFlags: 0
