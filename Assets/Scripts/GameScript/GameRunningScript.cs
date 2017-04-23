@@ -24,7 +24,6 @@ namespace MyGame{
 		public int countDown;
 		public bool isServer;
 		private GameRunningScript(){
-			policePos=new List<PlayerControlScript>();
 			isClickActive=true;
 			countDown=-1;
 		}

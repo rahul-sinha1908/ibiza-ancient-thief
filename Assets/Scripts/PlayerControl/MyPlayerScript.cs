@@ -27,42 +27,32 @@ public class MyPlayerScript : MonoBehaviour {
 			thiefController.gameObject.SetActive(true);
 	}
 	void Start () {
-		myPolices=GameRunningScript.getInstance().policePos;
+		GameRunningScript.getInstance().policePos=myPolices;
 		GameRunningScript.getInstance().myPlayer=this;
 		myChar=GameRunningScript.getInstance().myPlayerChar;
 	}
 	
 	public void getPolices(){
-		myPolices.Clear();
 		for(int i=0;i<5;i++){
-			myPolices[i].initMyPlayer(GameRunningScript.getInstance().gameClickHandler.selectRandomPolice(i+1), Character.Police, i);
+			myPolices[i].initPolicePlayer(GameRunningScript.getInstance().gameClickHandler.selectRandomPolice(i+1), policeController, i);
 		}
 		getThief();
 	}
 	private void getThief(){
-		myThief.initMyPlayer(GameRunningScript.getInstance().gameClickHandler.selectThiefLoc(myPolices), Character.Thief, -1);
+		myThief.initThiefPlayer(GameRunningScript.getInstance().gameClickHandler.selectThiefLoc(myPolices), thiefController, -1);
 		GameRunningScript.getInstance().thiefPos=myThief;
 		formInitialMessage();
 	}
 	private void formInitialMessage(){
 		int[] police= new int[]{myPolices[0].getCurrentCheck().getIndex(), myPolices[1].getCurrentCheck().getIndex(), myPolices[2].getCurrentCheck().getIndex()
 								, myPolices[3].getCurrentCheck().getIndex(), myPolices[4].getCurrentCheck().getIndex()};
-		netView.RPC("sendDetailsToNetwork", RPCMode.OthersBuffered, new object[]{police});
+		netView.RPC("thiefSendDetailsToNetwork", RPCMode.OthersBuffered, new object[]{police});
 	}
 
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-	[RPC]
-	private void sendDetailsToNetwork(int[] polices){
-		//TODO this function should initiate the thief as well
-		for(int i=0;i<5;i++){
-			myPolices[i].initMyPlayer(gameClickHandler.allChecks[polices[i]], Character.Police, i);
-		}
-	}
-
 
 
 
@@ -136,5 +126,16 @@ public class MyPlayerScript : MonoBehaviour {
 	[RPC]
 	private void thiefSendMoves(int move){
 		//TODO Display the move on the police panel
+		TransportType type = (TransportType) move;
+		policeController.addThiefMoves(type);
 	}
+
+	[RPC]
+	private void thiefSendDetailsToNetwork(int[] polices){
+		//TODO this function should initiate the thief as well
+		for(int i=0;i<5;i++){
+			myPolices[i].initPolicePlayer(gameClickHandler.allChecks[polices[i]], policeController, i);
+		}
+	}
+
 }

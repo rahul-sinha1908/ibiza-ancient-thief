@@ -26,13 +26,13 @@ public class MyNetworkScript : MonoBehaviour {
 	public InputField input;
 	public void startOnlineServer(){
 		Dev.log(Tag.Network,"You Clicked to initiate Server1");
-		GameRunningScript.getInstance().myPlayerChar=Character.Police;
+		GameRunningScript.getInstance().myPlayerChar=Character.Thief;
 		Network.InitializeServer(2,portNum,true);
 		Dev.log(Tag.Network,"You Clicked to initiate Server3");
 	}
 	public void searchOnline(){
 		Dev.log(Tag.Network,"You Clicked to Search Server 1");
-		GameRunningScript.getInstance().myPlayerChar=Character.Thief;
+		GameRunningScript.getInstance().myPlayerChar=Character.Police;
 		if(input.text==null || input.text=="" || input.text.Length==0)
 			Network.Connect("127.0.0.1",portNum);
 		else

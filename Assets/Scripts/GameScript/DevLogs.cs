@@ -10,7 +10,7 @@ namespace MyGame{
 		Normal, Selected, PoliceUnselected, Cycle, Cart, Horse, Boat, CCart, CHorse, CBoat, CCartHorse, CCartBoat, CHorseBoat, CCartHorseBoat
 	}
 	public enum Tag{
-		UnOrdered, GameClickListener,MyPlayerScript, Network
+		UnOrdered, GameClickListener,MyPlayerScript, Network, PoliceUIController, ThiefUIController, PlayerControllerScript
 	}
 	public class DevTag{
 		public const int MAX=100;
@@ -22,6 +22,9 @@ namespace MyGame{
 			list[(int)Tag.UnOrdered]=false;
 			list[(int)Tag.MyPlayerScript]=true;
 			list[(int)Tag.Network]=true;
+			list[(int)Tag.PoliceUIController]=true;
+			list[(int)Tag.ThiefUIController]=true;
+			list[(int)Tag.PlayerControllerScript]=true;
 			//list[(int)Tag.]=true;
 		}
 		public bool isAllowed(Tag tag){
