@@ -7,6 +7,8 @@ using MyGame;
 public class MyPlayerScript : MonoBehaviour {
 	public List<PlayerControlScript> myPolices;
 	public PlayerControlScript myThief;
+	public PoliceUIController policeController;
+	public ThiefUIController thiefController;
 	NetworkView netView;
 	private bool isLocalPlayer, isServer;
 	public GameClickHandler gameClickHandler;
@@ -18,6 +20,11 @@ public class MyPlayerScript : MonoBehaviour {
 		netView = GetComponent<NetworkView>();
 		isLocalPlayer=netView.isMine;
 		isServer=GameRunningScript.getInstance().isServer;
+
+		if(GameRunningScript.getInstance().myPlayerChar==Character.Police)
+			policeController.gameObject.SetActive(true);
+		else
+			thiefController.gameObject.SetActive(true);
 	}
 	void Start () {
 		myPolices=GameRunningScript.getInstance().policePos;
@@ -54,5 +61,80 @@ public class MyPlayerScript : MonoBehaviour {
 		for(int i=0;i<5;i++){
 			myPolices[i].initMyPlayer(gameClickHandler.allChecks[polices[i]], Character.Police, i);
 		}
+	}
+
+
+
+
+
+
+
+	/*
+	RPC's For Polices.......................................................
+	*/
+	[RPC]
+	private void policeAskRAdius(int ind, int radius){
+		CheckPoints check=gameClickHandler.allChecks[ind];
+		Vector3 playerPos = check.transform.position;
+		Vector3 myPos = myThief.transform.position;
+		float dist2 = GameMethods.getSqrDist(playerPos, myPos);
+		if(radius*radius<dist2*dist2){
+			netView.RPC("thiefAskRadiusAnswer" , RPCMode.OthersBuffered, new object[]{false});
+		}else{
+			netView.RPC("thiefAskRadiusAnswer" , RPCMode.OthersBuffered, new object[]{true});
+		}
+	}
+
+	[RPC]
+	private void policeAskDirection(int ind, int radius){
+		CheckPoints check=gameClickHandler.allChecks[ind];
+		Vector3 playerPos = check.transform.position;
+		Vector3 myPos = myThief.transform.position;
+		float dist2 = GameMethods.getSqrDist(playerPos, myPos);
+		if(radius*radius<dist2*dist2){
+			netView.RPC("thiefAskDirectionAnswer", RPCMode.OthersBuffered, new object[]{null});
+		}else{
+			//TODO Get the direction and send
+		}
+	}
+
+	[RPC]
+	private void policeSendMove(int ind, int ch, int tType){
+		TransportType type = (TransportType)tType;
+		myPolices[ind].moveMyPlayer(gameClickHandler.allChecks[ch],type);
+	}
+
+
+
+
+
+
+
+
+
+
+	/*
+	RPC's For Thief..........................................................
+	*/
+	[RPC]
+	private void thiefAskRadiusAnswer(bool b){
+		if(true){
+
+		}else{
+
+		}
+	}
+
+	[RPC]
+	private void thiefAskDirectionAnswer(int[] inds){
+		if(inds==null){
+			//TODO No direction Found.
+			return;
+		}
+	}
+
+	[RPC]
+	private void thiefSendMoves(int move){
+		//TODO Display the move on the police panel
 	}
 }

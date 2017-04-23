@@ -66,6 +66,7 @@
 		"Assets/Streets":true,
 		"Assets/Terrains":true,
 		"Assets/Textures":true,
+		"Assets/TerrainToolkit":true,
 		"Library/":true,
 		"library/":true,
 		"obj/":true,

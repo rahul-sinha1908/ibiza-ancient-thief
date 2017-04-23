@@ -20,11 +20,11 @@ public class PoliceUIController : MonoBehaviour {
 	}
 
 	public void askRadius(){
-
+		//TODO Reduce Money and send RPCs calls
 	}
 
 	public void askDirection(){
-
+		//TODO Reduce Money and send RPCs calls1
 	}
 
 	public void addThiefMoves(TransportType type){

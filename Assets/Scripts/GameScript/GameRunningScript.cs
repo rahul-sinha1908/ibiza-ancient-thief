@@ -7,7 +7,7 @@ namespace MyGame{
 		Police, Thief
 	}
 	public enum TransportType{
-		Cycle, BullockCart, Horse, Boat
+		Cycle, BullockCart, Horse, Boat, HiddenMove
 	}
 	public class GameRunningScript{
 		private static GameRunningScript instance;
